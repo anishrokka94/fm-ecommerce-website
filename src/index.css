@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+body.light {
+  --color-primary: #3758f9; /* primary */
+  --color-primary-dark: #1b44c8; /* darker variant */
+  --color-bg: #f9fafb; /* page background */
+  --color-surface: #ffffff; /* card or container background */
+  --color-border: #dfe4ea; /* light border */
+  --color-text: #212b36; /* default dark text */
+  --color-text-muted: #637381; /* body-color */
+}
+
+body.dark {
+  --color-primary: #1b44c8; /* blue-dark */
+  --color-primary-dark: #3758f9; /* lighter variant in dark */
+  --color-bg: #111928; /* dark background */
+  --color-surface: #1f2a37; /* card or container background */
+  --color-border: #374151; /* dark.3 border */
+  --color-text: #d1d5db; /* dark.7 */
+  --color-text-muted: #9ca3af; /* dark.6 */
+}
+
+body {
+  --color-primary: red;
+}

@@ -1,31 +1,74 @@
-import React from "react";
+import React, { useContext } from "react";
 // import LogoutButton from "./components/LogInButton";
-import LogInButton from "./components/LogInButton";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../global-state/context/AuthContext/AuthContext";
+import { AUTH_ACTION_TYPE } from "../../global-state/action/AuthActions/AuthActions";
+import axios from "axios";
 
-const AccountPage = () => {
+const LoginPage = () => {
+  const navigate = useNavigate();
+
+  const { state, authDispatch } = useContext(AuthContext);
+
+  const handleSubmit = async (e: MouseEvent) => {
+    e.preventDefault();
+    // call backend api
+
+    try {
+      const res = await axios.post("https://dummyjson.com/auth/login", {
+        username: state.username,
+        password: state.password,
+        expiresInMins: 60,
+      });
+
+      authDispatch({
+        type: AUTH_ACTION_TYPE.LOGIN,
+        payload: res.data,
+      });
+
+      navigate("/");
+
+      console.log("res", res);
+    } catch (error) {
+      console.log(error);
+      authDispatch({ type: AUTH_ACTION_TYPE.ERROR, payload: error.message });
+    }
+  };
   return (
     <div className="flex justify-center py-5">
       <div className="w-full max-w-md">
-        <LogInButton />
         <div className="flex flex-col">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
             Login
           </h2>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Email Field */}
+            {state.error && (
+              <p className="bg-red-900 text-white p-2 rounded-sm">
+                {" "}
+                {state.error}
+              </p>
+            )}
             <div>
               <label
                 htmlFor="email"
                 className="block text-lg font-semibold text-gray-800 mb-1"
               >
-                Email
+                Username
               </label>
               <input
-                type="email"
-                id="email"
+                type="text"
+                id="username"
                 className="w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500"
-                placeholder="Enter your email"
+                placeholder="Enter Username"
+                value={state.username}
+                onChange={(e) => {
+                  authDispatch({
+                    type: AUTH_ACTION_TYPE.SET_USERNAME,
+                    payload: e.target.value,
+                  });
+                }}
               />
             </div>
 
@@ -50,6 +93,13 @@ const AccountPage = () => {
                 id="password"
                 className="w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500"
                 placeholder="Enter your password"
+                value={state.password}
+                onChange={(e) => {
+                  authDispatch({
+                    type: AUTH_ACTION_TYPE.SET_PASSWORD,
+                    payload: e.target.value,
+                  });
+                }}
               />
             </div>
 
@@ -76,4 +126,4 @@ const AccountPage = () => {
   );
 };
 
-export default AccountPage;
+export default LoginPage;

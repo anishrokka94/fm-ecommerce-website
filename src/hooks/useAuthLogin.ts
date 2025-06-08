@@ -6,10 +6,10 @@ const useAuthLogin = () => {
   const [error, setError] = useState<unknown>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const login = async (username: string, password: string) => {
+  const login = async () => {
     setLoading(true);
     try {
-      const res = await loginUser(username, password);
+      const res = await loginUser();
 
       setUserdata(res.data);
     } catch (e) {

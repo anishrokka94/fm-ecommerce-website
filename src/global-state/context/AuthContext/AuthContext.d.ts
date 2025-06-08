@@ -1,12 +1,11 @@
-import { User } from "../../action/AuthActions/AuthActions";
-import { AuthAction } from "../../reducer/AuthReducer/AuthReducer";
+import type {
+  AuthState,
+  AuthAction,
+} from "../../reducer/AuthReducer/AuthTypes";
 
-export interface AuthState {
-  isLoggedIn: boolean;
-  user: User | null;
-}
+import type { Dispatch } from "react";
 
 export interface AuthContextType {
   state: AuthState;
-  loginDispatch: React.Dispatch<AuthAction>;
+  authDispatch: Dispatch<AuthAction>;
 }

@@ -1,8 +1,8 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import ProductShowcaseSection from "../components/common/ProductionShowcaseSection/ProductShowcaseSection";
 import CategorySection from "../components/Homepage/CategorySection";
 import SwiperSlider from "../components/SwiperSlider/SwiperSlider";
-import { AuthContext } from "../global-state/context/AuthContext/AuthContext";
+// import { AuthContext } from "../global-state/context/AuthContext/AuthContext";
 
 const HomePage = () => {
   const heroSlides = [
@@ -87,8 +87,8 @@ const HomePage = () => {
     },
   ];
 
-  const { isLoggedIn } = useContext(AuthContext);
-  console.log("islo", isLoggedIn);
+  // const { isLoggedIn } = useContext(AuthContext);
+  // console.log("islo", isLoggedIn);
 
   return (
     // <div className="flex flex-col items-center p-7 rounded-2xl">

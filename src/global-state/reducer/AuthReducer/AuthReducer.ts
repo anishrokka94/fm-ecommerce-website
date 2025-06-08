@@ -27,7 +27,8 @@ const AuthReducer = (state: AuthState, action: AuthAction): AuthState => {
       return { ...state, password: action.payload };
 
     case AUTH_ACTION_TYPE.LOGOUT:
-      localStorage.clear();
+      localStorage.removeItem("tokens");
+      localStorage.setItem("isAuthenticated", "false");
       window.location.href = "/login";
       return { ...state, isAuthenticated: false };
 

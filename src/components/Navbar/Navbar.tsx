@@ -10,7 +10,13 @@ import { DrawerContext } from "../../global-state/context/DrawerContext/DrawerCo
 import { DRAWER_ACTION_TYPE } from "../../global-state/action/DrawerActions/DrawerActions";
 
 const Navbar = () => {
-  const { drawerDispatch } = useContext(DrawerContext);
+  // const { drawerDispatch } = useContext(DrawerContext);
+  const context = useContext(DrawerContext);
+  if (!context) {
+    throw new Error("DrawerContext must be used within a DrawerProvider");
+  }
+
+  const { drawerDispatch } = context;
 
   const handleDrawer = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log("open..");

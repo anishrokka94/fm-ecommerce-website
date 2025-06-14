@@ -1,0 +1,4 @@
+export const DRAWER_ACTION_TYPE = {
+  OPEN: "DRAWER_OPEN",
+  CLOSE: "DRAWRR_CLOSE",
+};

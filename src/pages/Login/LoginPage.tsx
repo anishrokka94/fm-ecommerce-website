@@ -18,7 +18,7 @@ const LoginPage = () => {
       const res = await axios.post("https://dummyjson.com/auth/login", {
         username: state.username,
         password: state.password,
-        expiresInMins: 60,
+        expiresInMins: 20,
       });
 
       authDispatch({

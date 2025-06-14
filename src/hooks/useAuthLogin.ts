@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { loginUser } from "../services/api";
+import { loginUser } from "../services/services";
 
 const useAuthLogin = () => {
   const [userData, setUserdata] = useState(null);
@@ -11,7 +11,7 @@ const useAuthLogin = () => {
     try {
       const res = await loginUser();
 
-      setUserdata(res.data);
+      setUserdata(res);
     } catch (e) {
       setError(e);
     } finally {

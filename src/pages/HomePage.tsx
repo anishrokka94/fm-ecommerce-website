@@ -10,7 +10,7 @@ const HomePage = () => {
       key: "hero-1",
       content: (
         <img
-          src="/img/hero-1.webp"
+          src="/img/hero-1.jpg"
           className="w-full h-full object-cover"
           alt="Hero 1"
         />
@@ -20,7 +20,37 @@ const HomePage = () => {
       key: "hero-2",
       content: (
         <img
-          src="/img/hero-2.webp"
+          src="/img/hero-2.jpg"
+          className="w-full h-full object-cover"
+          alt="Hero 2"
+        />
+      ),
+    },
+    {
+      key: "hero-3",
+      content: (
+        <img
+          src="/img/hero-3.jpg"
+          className="w-full h-full object-cover"
+          alt="Hero 2"
+        />
+      ),
+    },
+    {
+      key: "hero-4",
+      content: (
+        <img
+          src="/img/hero-4.jpg"
+          className="w-full h-full object-cover"
+          alt="Hero 2"
+        />
+      ),
+    },
+    {
+      key: "hero-5",
+      content: (
+        <img
+          src="/img/hero-5.jpg"
           className="w-full h-full object-cover"
           alt="Hero 2"
         />

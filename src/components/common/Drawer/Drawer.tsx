@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import { useContext } from "react";
+import { DRAWER_ACTION_TYPE } from "../../../global-state/action/DrawerActions/DrawerActions";
+import { DrawerContext } from "../../../global-state/context/DrawerContext/DrawerContext";
 
 const Drawer = () => {
-  const [showDrawer, setShowDrawer] = useState(false);
-
+  const { state, drawerDispatch } = useContext(DrawerContext);
   const handleDrawer = () => {
-    setShowDrawer(!showDrawer);
+    console.log("drawer...", state);
+    drawerDispatch({ type: DRAWER_ACTION_TYPE.CLOSE, payload: {} });
   };
   return (
     <>
-      {showDrawer && (
+      {state.isOpen && (
         <div
           className="relative z-10"
           aria-labelledby="slide-over-title"

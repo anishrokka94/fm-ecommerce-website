@@ -18,8 +18,8 @@ const Navbar = () => {
 
   const { drawerDispatch } = context;
 
-  const handleDrawer = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("open..");
+  const handleDrawer = (e: React.MouseEvent<HTMLElement>) => {
+    // console.log("open..");
     e.preventDefault();
     drawerDispatch({ type: DRAWER_ACTION_TYPE.OPEN });
   };

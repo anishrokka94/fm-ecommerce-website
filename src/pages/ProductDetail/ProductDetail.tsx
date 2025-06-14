@@ -33,8 +33,8 @@ const ProductDetail = () => {
                 {" "}
                 $
                 {actualPrice(
-                  productDetails?.price,
-                  productDetails?.discountPercentage
+                  productDetails?.price ?? 0,
+                  productDetails?.discountPercentage ?? 0
                 )}
               </span>
               <span className="text-gray-500 line-through mr-2">

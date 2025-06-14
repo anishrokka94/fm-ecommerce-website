@@ -12,7 +12,7 @@ import { DRAWER_ACTION_TYPE } from "../../global-state/action/DrawerActions/Draw
 const Navbar = () => {
   const { drawerDispatch } = useContext(DrawerContext);
 
-  const handleDrawer = (e) => {
+  const handleDrawer = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log("open..");
     e.preventDefault();
     drawerDispatch({ type: DRAWER_ACTION_TYPE.OPEN });

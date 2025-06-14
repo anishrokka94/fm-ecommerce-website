@@ -1,5 +1,3 @@
-import React from "react";
-
 const GlobalSearch = () => {
   return (
     <div className="max-w-lg flex flex-1 items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg border border-gray-200 transition-all">

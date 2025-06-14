@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import LightModeIcon from "../../assets/svg/LightModeIcon";
 import DarkModeIcon from "../../assets/svg/DarkModeIcon";
 import { ThemeContext } from "../../global-state/context/ThemeContext/ThemeContext";

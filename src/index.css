@@ -24,3 +24,11 @@ body.dark {
 body {
   --color-primary: red;
 }
+
+.swiper-button-custom {
+  @apply absolute z-10 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center;
+}
+
+.swiper-button-custom .arrow {
+  @apply text-black text-2xl;
+}

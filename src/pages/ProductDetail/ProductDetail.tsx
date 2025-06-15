@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import ProductSlider from "./components/ProductSlider/ProductSlider";
+import ProductSlider from "./components/ProductThumbnailSlider/ProductThumbnailSlider";
 import { useFetchProductDetails } from "../../hooks/useFetchProductDetails";
 import { actualPrice } from "../../utils/auth";
 import ProductSpecificationAccordion from "./components/ProductSpecificationAccordion/ProductSpecificationAccordion";
@@ -41,7 +41,7 @@ const ProductDetail = () => {
                 ${productDetails?.price}
               </span>
 
-              <span className="bg-amber-800 px-1 text-md font-medium text-white">
+              <span className="bg-[#af0c4b] px-1 text-md font-medium text-white">
                 {productDetails?.discountPercentage}% OFF
               </span>
             </div>
@@ -122,12 +122,6 @@ const ProductDetail = () => {
               </button>
             </div>
 
-            {/* why not this */}
-            {/* <ProductSpecificationAccordion
-          productSpecification={productDetails.dimension}
-        /> */}
-
-            {/* why this */}
             {productDetails?.dimensions && (
               <ProductSpecificationAccordion
                 productSpecification={productDetails.dimensions}

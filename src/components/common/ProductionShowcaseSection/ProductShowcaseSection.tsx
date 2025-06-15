@@ -1,3 +1,4 @@
+import SingleProductCard from "../../../pages/HomePage/components/SingleProductCard/SingleProductCard";
 import SwiperSlider from "../../SwiperSlider/SwiperSlider";
 import ProductCard from "../ProductCard/ProductCard";
 
@@ -8,7 +9,7 @@ const ProductShowcaseSection = ({
 }: ProductShowcaseProps) => {
   const productSlides = products.map((product) => ({
     key: product.id,
-    content: <ProductCard />,
+    content: <SingleProductCard product={product} />,
   }));
 
   return (

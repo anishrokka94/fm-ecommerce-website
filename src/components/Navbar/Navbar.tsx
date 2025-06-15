@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import CartIcon from "../../assets/svg/CartIcon";
 import FavouriteIcon from "../../assets/svg/FavouriteIcon";
-import UserIcon from "../../assets/svg/UserIcon";
 import GlobalSearch from "../GlobalSearch/GlobalSearch";
 import DarkModeToggleButton from "../Buttons/DarkModeToggleButton";
 import ChevronDownIcon from "../../assets/svg/ChevronDownIcon";
 import { useContext } from "react";
 import { DrawerContext } from "../../global-state/context/DrawerContext/DrawerContext";
 import { DRAWER_ACTION_TYPE } from "../../global-state/action/DrawerActions/DrawerActions";
+import { UserIcon, MapPinIcon, TruckIcon } from "@heroicons/react/24/solid";
+import useAuthLogin from "../../hooks/useAuthLogin";
 
 const Navbar = () => {
   // const { drawerDispatch } = useContext(DrawerContext);
@@ -23,8 +24,41 @@ const Navbar = () => {
     e.preventDefault();
     drawerDispatch({ type: DRAWER_ACTION_TYPE.OPEN });
   };
+
+  const { userData } = useAuthLogin();
+
+  console.log("user", userData);
   return (
     <>
+      <div className="bg-[#af0c4b] text-white text-sm">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2">
+          <span className="font-semibold">The Joy of Well-Made Things!</span>
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-1 cursor-pointer hover:underline">
+              <MapPinIcon className="h-4 w-4" />
+              <span>Find Store</span>
+            </div>
+            <div className="flex items-center gap-1 cursor-pointer hover:underline">
+              <TruckIcon className="h-4 w-4" />
+              <span>Track Order</span>
+            </div>
+            <div className="flex items-center gap-1 cursor-pointer hover:underline">
+              <UserIcon className="h-4 w-4" />
+              <Link to="/account" className="">
+                {" "}
+                Hello, {userData?.firstName}
+              </Link>
+            </div>
+
+            <div className="flex items-center gap-1 cursor-pointer hover:underline">
+              <Link to="/login" className="">
+                {" "}
+                Login
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
       <nav className="dark:bg-amber-800 bg-white w-full flex gap-4 relative justify-between items-center mx-auto px-8 h-20">
         {/* <!-- logo --> */}
         <div className="inline-flex mr-4">
@@ -103,9 +137,6 @@ const Navbar = () => {
                   </Link>
                   <Link to="/" className="" onClick={(e) => handleDrawer(e)}>
                     <CartIcon />
-                  </Link>
-                  <Link to="/account" className="">
-                    <UserIcon />
                   </Link>
 
                   <DarkModeToggleButton />

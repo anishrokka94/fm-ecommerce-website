@@ -3,7 +3,7 @@ import { actualPrice } from "../../../utils/auth";
 import type { ProductCard } from "./types";
 
 interface ProductCardProps {
-  products: ProductCard[];
+  products: ProductCard;
   loading: boolean;
   error: boolean;
 }
@@ -72,7 +72,7 @@ const ProductCard = ({ products, loading }: ProductCardProps) => {
                 </span>
               </div>
               <div></div>
-              <p className="bg-amber-800 px-1 text-md font-medium text-white">
+              <p className="bg-[#af0c4b] px-1 text-md font-medium text-white">
                 {product?.discountPercentage}% OFF
               </p>
             </div>

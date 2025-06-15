@@ -5,7 +5,7 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import HomePage from "../pages/HomePage/HomePage";
 import ShopPage from "../pages/Shop/ShopPage";
 import ProductDetail from "../pages/ProductDetail/ProductDetail";
 import Layout from "../components/common/Layout";

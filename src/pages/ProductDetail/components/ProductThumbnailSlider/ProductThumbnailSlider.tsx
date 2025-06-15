@@ -5,11 +5,11 @@ import "swiper/css";
 import "swiper/css/thumbs";
 import "swiper/css/navigation";
 
-interface ProductSliderProps {
+interface ProductThumbnailSliderProps {
   images?: string[];
 }
 
-const ProductSlider = ({ images }: ProductSliderProps) => {
+const ProductThumbnailSlider = ({ images }: ProductThumbnailSliderProps) => {
   const [activeImage, setActiveImage] = useState(images[0]);
   return (
     <div className="flex gap-4">
@@ -25,7 +25,7 @@ const ProductSlider = ({ images }: ProductSliderProps) => {
         ))}
       </div>
 
-      <div className="w-full aspect-square border border-gray-300 rounded-lg overflow-hidden">
+      <div className="w-full aspect-square rounded-2xl overflow-hidden bg-gray-100">
         <img
           src={activeImage}
           alt="Main Product"
@@ -36,4 +36,4 @@ const ProductSlider = ({ images }: ProductSliderProps) => {
   );
 };
 
-export default ProductSlider;
+export default ProductThumbnailSlider;

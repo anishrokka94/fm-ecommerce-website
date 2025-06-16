@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-// import LogoutButton from "./components/LogInButton";
+import { useContext, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../global-state/context/AuthContext/AuthContext";
 import { AUTH_ACTION_TYPE } from "../../global-state/action/AuthActions/AuthActions";
@@ -10,7 +9,7 @@ const LoginPage = () => {
 
   const { state, authDispatch } = useContext(AuthContext);
 
-  const handleSubmit = async (e: MouseEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // call backend api
 
@@ -31,7 +30,10 @@ const LoginPage = () => {
       console.log("res", res);
     } catch (error) {
       console.log(error);
-      authDispatch({ type: AUTH_ACTION_TYPE.ERROR, payload: error.message });
+      authDispatch({
+        type: AUTH_ACTION_TYPE.ERROR,
+        payload: (error as Error)?.message || "Something went wrong",
+      });
     }
   };
   return (

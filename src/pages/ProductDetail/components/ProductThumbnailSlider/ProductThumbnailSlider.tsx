@@ -20,7 +20,7 @@ const ProductThumbnailSlider = ({ images }: ProductThumbnailSliderProps) => {
             src={img}
             alt={`Thumbnail ${idx}`}
             onClick={() => setActiveImage(img)}
-            className="w-16 h-16 object-cover border border-gray-300 rounded cursor-pointer hover:scale-105 transition"
+            className="w-20 h-20 object-cover border border-gray-300 rounded cursor-pointer hover:scale-105 transition"
           />
         ))}
       </div>

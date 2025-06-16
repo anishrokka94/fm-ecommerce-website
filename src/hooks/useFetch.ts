@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../services/services";
-import type { ProductCard } from "../components/common/ProductCard/types";
+import type { Product } from "../components/common/ProductCard/types";
 
 const useFetch = (page: number, limit: number = 12) => {
-  const [allData, setAllData] = useState<ProductCard[]>([]);
+  const [allData, setAllData] = useState<Product[]>([]);
   const [total, setTotal] = useState(0);
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true);
@@ -15,8 +15,8 @@ const useFetch = (page: number, limit: number = 12) => {
       try {
         const skip = (page - 1) * limit;
         const data = await fetchProducts(skip, limit);
-        const filteredData: ProductCard[] = data.products.map(
-          (product: ProductCard) => ({
+        const filteredData: Product[] = data.products.map(
+          (product: Product) => ({
             id: product.id || 0,
             title: product.title,
             brand: product.brand,

@@ -1,4 +1,4 @@
-export interface ProductCard {
+export interface Product {
   id: number;
   title: string;
   brand: string;
@@ -13,7 +13,7 @@ export interface ProductDetails {
   title: string;
   brand: string;
   category: string;
-  dimension: ProductDimension;
+  dimensions: ProductDimension;
   discountPercentage: number;
   thumbnail: string;
   price: number;
@@ -29,6 +29,8 @@ export interface ProductDetails {
   weight: number;
   tags: string[];
   reviews: string[];
+  shippingInformation: string;
+  warrantyInformation: string;
 }
 
 export interface ProductDimension {

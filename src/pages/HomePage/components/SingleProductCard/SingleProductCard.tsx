@@ -1,8 +1,8 @@
 import ProductCard from "../../../../components/common/ProductCard/ProductCard";
-import type { ProductCard as ProductType } from "../../../../components/common/ProductCard/types";
+import type { Product } from "../../../../components/common/ProductCard/types";
 
 interface SingleProductCardProps {
-  product: ProductType;
+  product: Product;
 }
 
 const SingleProductCard = ({ product }: SingleProductCardProps) => {

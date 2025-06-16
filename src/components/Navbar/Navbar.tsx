@@ -30,8 +30,8 @@ const Navbar = () => {
   console.log("user", userData);
   return (
     <>
-      <div className="bg-[#af0c4b] text-white text-sm">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2">
+      <div className="bg-[#cc3131] text-white text-sm">
+        <div className="mx-auto px-8 flex items-center justify-between py-2">
           <span className="font-semibold">The Joy of Well-Made Things!</span>
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-1 cursor-pointer hover:underline">
@@ -46,7 +46,8 @@ const Navbar = () => {
               <UserIcon className="h-4 w-4" />
               <Link to="/account" className="">
                 {" "}
-                Hello, {userData?.firstName}
+                Hello
+                {/* Hello, {userData?.firstName} */}
               </Link>
             </div>
 

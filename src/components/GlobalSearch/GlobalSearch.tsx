@@ -1,39 +1,70 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import useFetch from "../../hooks/useFetch";
 import { Link } from "react-router-dom";
+import useDebounce from "../../hooks/useDebounce";
+
+type SearchFormInputs = {
+  searchQuery: string;
+};
 
 const GlobalSearch = () => {
-  const { handleSubmit, register, watch } = useForm();
+  const { handleSubmit, register, watch } = useForm<SearchFormInputs>();
   const [showDropdown, setShowDropdown] = useState(false);
 
   const searchQuery = watch("searchQuery");
-  // console.log("query", searchQuery);
+  console.log("query", searchQuery);
 
   const { allData } = useFetch(1, 100);
   // console.log("search", allData);
 
+  const debounceSearchTerm = useDebounce(searchQuery, 300);
+
   const filteredData = allData.filter((product) => {
-    return product.title.toLowerCase().includes(searchQuery.toLowerCase());
+    return product.title
+      .toLowerCase()
+      .includes(debounceSearchTerm.toLowerCase());
   });
 
-  console.log("fil", filteredData);
+  // console.log("fil", filteredData);
 
   useEffect(() => {
-    if (searchQuery && searchQuery.length > 1) {
+    if (debounceSearchTerm && debounceSearchTerm.length > 1) {
       setShowDropdown(true);
     } else {
       setShowDropdown(false);
     }
-  }, [searchQuery]);
+  }, [debounceSearchTerm]);
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: SearchFormInputs) => {
     console.log("data", data);
     setShowDropdown(false);
   };
+
+  const globalFormRef = useRef<HTMLFormElement>(null);
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        globalFormRef.current &&
+        !globalFormRef.current.contains(e.target as Node)
+      ) {
+        // console.log("clicked outside");
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <div className="relative max-w-lg flex flex-1 items-center">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full"
+        ref={globalFormRef}
+      >
         <div className="flex gap-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg border border-gray-200 transition-all">
           <input
             {...register("searchQuery")}
@@ -72,14 +103,14 @@ const GlobalSearch = () => {
                     .replace(/ +/g, "-")}-${id}`;
                 };
                 return (
-                  <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer">
-                    <Link
-                      to={`/product/${createSlug(product.title, product.id)}`}
-                    >
-                      {" "}
-                      {product.title}{" "}
-                    </Link>
-                  </li>
+                  <Link
+                    key={product.id}
+                    to={`/product/${createSlug(product.title, product.id)}`}
+                  >
+                    <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer">
+                      {product.title}
+                    </li>
+                  </Link>
                 );
               })
             ) : (

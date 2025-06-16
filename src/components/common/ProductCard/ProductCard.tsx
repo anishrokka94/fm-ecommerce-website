@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { actualPrice } from "../../../utils/auth";
-import type { ProductCard } from "./types";
+import type { Product } from "./types";
 
 interface ProductCardProps {
-  products: ProductCard;
+  products: Product[];
   loading: boolean;
   error: boolean;
 }
@@ -15,8 +15,8 @@ const ProductCard = ({ products, loading }: ProductCardProps) => {
     return (
       <>
         {Array.from({ length: 12 }).map((_, idx) => (
-          <div key={idx} className="animate-pulse group relative">
-            <div className="aspect-square w-full rounded-md bg-gray-300 lg:aspect-auto lg:h-60" />
+          <div key={idx} className="animate-pulse group relative rounded-2xl">
+            <div className="aspect-square w-full bg-gray-300 rounded-2xl lg:aspect-auto lg:h-60" />
             <div className="mt-4 h-5 w-3/4 rounded bg-gray-300"></div>
             <div className="mt-2 flex justify-between">
               <div className="h-5 w-1/4 rounded bg-gray-300"></div>
@@ -40,13 +40,14 @@ const ProductCard = ({ products, loading }: ProductCardProps) => {
 
         return (
           <Link
+            key={product.id}
             to={`/product/${createSlug(product.title, product.id)}`}
             className="group relative"
           >
             <img
               src={product.thumbnail}
               alt={product.title}
-              className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto"
+              className="rounded-2xl aspect-square w-full bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto"
             />
             <div className="mt-4 flex justify-between">
               <div>
@@ -72,7 +73,7 @@ const ProductCard = ({ products, loading }: ProductCardProps) => {
                 </span>
               </div>
               <div></div>
-              <p className="bg-[#af0c4b] px-1 text-md font-medium text-white">
+              <p className="bg-[#cc3131] px-1 text-md font-medium text-white">
                 {product?.discountPercentage}% OFF
               </p>
             </div>

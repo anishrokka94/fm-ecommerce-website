@@ -17,6 +17,9 @@ const config: Config = {
       padding: "16px",
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", "sans-serif"], // set default sans
+      },
       boxShadow: {
         input: "0px 7px 20px rgba(0, 0, 0, 0.03)",
         form: "0px 1px 55px -11px rgba(0, 0, 0, 0.01)",

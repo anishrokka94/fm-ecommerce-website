@@ -1,18 +1,17 @@
 import { useState, useRef, useEffect } from "react";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
-import { DocumentDuplicateIcon } from "@heroicons/react/24/solid";
+import {
+  ChevronUpIcon,
+  ChevronDownIcon,
+  TruckIcon,
+} from "@heroicons/react/24/solid";
 
-interface ProductSpecificationProps {
-  dimensions: {
-    width: number;
-    depth: number;
-    height: number;
-  };
+interface ProductShippingProps {
+  shippingInformation: string;
 }
 
-const ProductSpecificationAccordion = ({
-  dimensions,
-}: ProductSpecificationProps) => {
+const ProductShippingAccordion = ({
+  shippingInformation,
+}: ProductShippingProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState("0px");
@@ -25,7 +24,7 @@ const ProductSpecificationAccordion = ({
     }
   }, [isOpen]);
 
-  if (!dimensions) return null;
+  if (!shippingInformation) return null;
 
   return (
     <div className="border-b border-gray-300">
@@ -34,9 +33,9 @@ const ProductSpecificationAccordion = ({
         className="flex items-center justify-between px-4 py-4 cursor-pointer"
         onClick={toggleAccordion}
       >
-        <div className="flex items-center gap-2 font-semibold text-md text-gray-800 ">
-          <DocumentDuplicateIcon className="h-4 w-4 text-gray-800" />
-          Specification
+        <div className="flex items-center gap-2 font-semibold text-md text-gray-800">
+          <TruckIcon className="h-4 w-4 text-gray-800" />
+          Shipping
         </div>
         {isOpen ? (
           <ChevronUpIcon className="w-5 h-5 text-gray-500" />
@@ -52,19 +51,9 @@ const ProductSpecificationAccordion = ({
         className="overflow-hidden transition-all duration-300 ease-in-out"
       >
         <div className="px-6 py-4">
-          <h4 className="text-md font-semibold mb-3">Dimensions</h4>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span>Width</span>
-              <span>{dimensions.width}</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Depth</span>
-              <span>{dimensions.depth}</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Height</span>
-              <span>{dimensions.height}</span>
+              <span>{shippingInformation}</span>
             </div>
           </div>
         </div>
@@ -73,4 +62,4 @@ const ProductSpecificationAccordion = ({
   );
 };
 
-export default ProductSpecificationAccordion;
+export default ProductShippingAccordion;

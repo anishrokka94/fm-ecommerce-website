@@ -1,3 +1,4 @@
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import React from "react";
 
 interface PaginationProps {
@@ -36,19 +37,19 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={() => onPageChange(1)}
           disabled={currentPage === 1}
-          className="px-3 py-1 rounded border text-sm bg-white hover:bg-gray-100 disabled:opacity-50"
+          className="cursor-pointer p-2 rounded-full bg-white hover:bg-gray-100 hover:bg-gray-100 disabled:opacity-50"
         >
-          First
+          <ChevronLeftIcon className="w-5 h-5 text-gray-700" />
         </button>
 
         {getPages().map((page) => (
           <button
             key={page}
             onClick={() => onPageChange(page)}
-            className={`px-3 py-1 rounded border text-sm ${
+            className={`cursor-pointer px-3 py-1 rounded-2xl text-sm ${
               currentPage === page
-                ? "bg-blue-600 text-white font-semibold"
-                : "bg-white hover:bg-gray-100"
+                ? "bg-[#af0c4b] text-white font-semibold border"
+                : "bg-white text-gray-800 hover:bg-gray-100"
             }`}
           >
             {page}
@@ -58,9 +59,9 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={() => onPageChange(totalPages)}
           disabled={currentPage === totalPages}
-          className="px-3 py-1 rounded border text-sm bg-white hover:bg-gray-100 disabled:opacity-50"
+          className="cursor-pointer p-2 rounded-full bg-white hover:bg-gray-100 disabled:opacity-50"
         >
-          Last
+          <ChevronRightIcon className="w-5 h-5 text-gray-700" />
         </button>
       </div>
     </div>

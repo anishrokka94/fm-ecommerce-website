@@ -11,7 +11,7 @@ const Banner = () => {
         autoPlay
         muted
         loop
-        className="w-full h-auto rounded-lg shadow-lg object-cover mt-5"
+        className="w-full h-auto rounded-lg shadow-lg object-cover mt-10"
       />
     </div>
   );

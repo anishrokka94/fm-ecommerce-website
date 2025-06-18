@@ -1,8 +1,8 @@
-// import { useState } from "react";
-
-const categories = ["Clothing", "Footwear", "Accessories"];
+import useFetchProductCategories from "../../../hooks/useFetchProductCategories";
 
 const CategoryFilter = () => {
+  const { categories } = useFetchProductCategories(0);
+  console.log("cat", categories);
   // const [selectedCategories, setSelectedCategories] = useState([]);
 
   // function handleCheckboxChange(category: any) {
@@ -17,13 +17,13 @@ const CategoryFilter = () => {
     <div style={{ padding: 20 }}>
       <h3 className="text-lg mb-4">Filter by Category</h3>
       {categories.map((category) => (
-        <div key={category} style={{ marginBottom: 8 }}>
+        <div key={category.slug} style={{ marginBottom: 8 }}>
           <label>
             <input
               type="checkbox"
               // checked={selectedCategories.includes(category)}
             />{" "}
-            {category}
+            {category.name}
           </label>
         </div>
       ))}

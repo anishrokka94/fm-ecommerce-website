@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Thumbs, Navigation } from "swiper/modules";
+import { useState } from "react";
 import "swiper/css";
 import "swiper/css/thumbs";
 import "swiper/css/navigation";
@@ -9,16 +7,18 @@ interface ProductThumbnailSliderProps {
   images?: string[];
 }
 
-const ProductThumbnailSlider = ({ images }: ProductThumbnailSliderProps) => {
+const ProductThumbnailSlider = ({
+  images = [],
+}: ProductThumbnailSliderProps) => {
   const [activeImage, setActiveImage] = useState(images[0]);
   return (
     <div className="flex gap-4">
       <div className="flex flex-col gap-2 overflow-y-auto max-h-[400px]">
-        {images.map((img, idx) => (
+        {images.map((img, index) => (
           <img
-            key={idx}
+            key={index}
             src={img}
-            alt={`Thumbnail ${idx}`}
+            alt={`Thumbnail ${index}`}
             onClick={() => setActiveImage(img)}
             className="w-20 h-20 object-cover border border-gray-300 rounded cursor-pointer hover:scale-105 transition"
           />

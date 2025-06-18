@@ -5,7 +5,7 @@ import type { Product } from "./types";
 interface ProductCardProps {
   products: Product[];
   loading: boolean;
-  error: boolean;
+  error?: string;
 }
 
 const ProductCard = ({ products, loading }: ProductCardProps) => {

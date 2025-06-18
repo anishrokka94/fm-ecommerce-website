@@ -9,6 +9,7 @@ import { DrawerContext } from "../../global-state/context/DrawerContext/DrawerCo
 import { DRAWER_ACTION_TYPE } from "../../global-state/action/DrawerActions/DrawerActions";
 import { UserIcon, MapPinIcon, TruckIcon } from "@heroicons/react/24/solid";
 import useAuthLogin from "../../hooks/useAuthLogin";
+import useFetchProductCategories from "../../hooks/useFetchProductCategories";
 
 const Navbar = () => {
   // const { drawerDispatch } = useContext(DrawerContext);
@@ -26,6 +27,7 @@ const Navbar = () => {
   };
 
   const { userData } = useAuthLogin();
+  const { categories } = useFetchProductCategories(0);
 
   console.log("user", userData);
   return (
@@ -79,34 +81,24 @@ const Navbar = () => {
             <div className="relative group">
               <a
                 href="#"
-                className="rounded-md text-black hover:text-gray-500 px-2 py-2 text-sm font-medium"
+                className="rounded-md text-black hover:text-gray-500 px-2 py-2 text-sm font-medium text-abc"
                 aria-current="page"
               >
                 Categories <ChevronDownIcon />
               </a>
 
-              <div className="absolute left-0 mt-2 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto pointer-events-none transform transition-all duration-300 ease-out bg-white dark:bg-amber-900 shadow-lg rounded-md p-4 z-50">
-                <div className="grid grid-cols-3 gap-6 min-w-[400px]">
-                  <div className="space-y-2">
-                    <Link
-                      to="/categories/mobiles"
-                      className="block text-sm hover:underline"
-                    >
-                      Mobiles
-                    </Link>
-                    <Link
-                      to="/categories/laptops"
-                      className="block text-sm hover:underline"
-                    >
-                      Laptops
-                    </Link>
-                    <Link
-                      to="/categories/cameras"
-                      className="block text-sm hover:underline"
-                    >
-                      Cameras
-                    </Link>
-                  </div>
+              <div className="absolute mt-2 left-0 sm:left-auto sm:right-0 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto pointer-events-none transform transition-all duration-300 ease-out bg-white dark:bg-amber-900 shadow-lg rounded-md p-4 z-50">
+                <div className="grid grid-cols-5 gap-x-6 gap-y-2 min-w-[900px] max-w-screen-md">
+                  {categories?.map((category) => {
+                    return (
+                      <Link
+                        to="/categories/mobiles"
+                        className="block text-sm hover:underline"
+                      >
+                        {category.name}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>

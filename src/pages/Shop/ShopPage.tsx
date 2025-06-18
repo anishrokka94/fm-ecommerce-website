@@ -7,7 +7,10 @@ import ProductCard from "../../components/common/ProductCard/ProductCard";
 const ShopPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
-  const { allData, total, loading } = useFetch(currentPage, itemsPerPage);
+  const { allData, total, loading, error } = useFetch(
+    currentPage,
+    itemsPerPage
+  );
 
   const totalPages = Math.ceil(total / itemsPerPage);
 
@@ -23,7 +26,11 @@ const ShopPage = () => {
 
         <div className="flex-1">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 p-6">
-            <ProductCard products={allData} loading={loading} />
+            <ProductCard
+              error={error?.message}
+              products={allData}
+              loading={loading}
+            />
           </div>
           <div className="mt-6">
             <Pagination

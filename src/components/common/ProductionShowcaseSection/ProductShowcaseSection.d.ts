@@ -1,4 +1,5 @@
 import SwiperSlider from "../../SwiperSlider/SwiperSlider";
+import type { Product } from "../ProductCard/types";
 export type Product = {
   id: string;
   image: string;

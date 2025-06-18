@@ -18,3 +18,10 @@ export const fetchProductDetails = async (name: string) => {
   const res = await axiosInstance.get(`/products/${name}`);
   return res.data;
 };
+
+// get all categories
+export const fetchProductCategories = async (limit: number) => {
+  const res = await axiosInstance.get("/products/categories");
+  const allCategories = res.data;
+  return limit ? allCategories.slice(0, limit) : allCategories;
+};

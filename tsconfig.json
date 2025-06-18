@@ -8,5 +8,6 @@
     "typeRoots": ["./node_modules/@types", "./src/types"],
     "types": ["vite/client", "swiper"],
     "noImplicitAny": false
-  }
+  },
+  "include": ["declareswiper.d.ts"]
 }

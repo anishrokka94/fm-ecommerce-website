@@ -1,5 +1,4 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import React from "react";
 
 interface PaginationProps {
   currentPage: number;
@@ -18,7 +17,7 @@ const Pagination: React.FC<PaginationProps> = ({
     const pages: number[] = [];
     const maxShown = 5;
     let start = Math.max(1, currentPage - Math.floor(maxShown / 2));
-    let end = Math.min(totalPages, start + maxShown - 1);
+    const end = Math.min(totalPages, start + maxShown - 1);
 
     if (end - start < maxShown - 1) {
       start = Math.max(1, end - maxShown + 1);
@@ -37,7 +36,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={() => onPageChange(1)}
           disabled={currentPage === 1}
-          className="cursor-pointer p-2 rounded-full bg-white hover:bg-gray-100 hover:bg-gray-100 disabled:opacity-50"
+          className="cursor-pointer p-2 rounded-full bg-white hover:bg-gray-100 disabled:opacity-50"
         >
           <ChevronLeftIcon className="w-5 h-5 text-gray-700" />
         </button>

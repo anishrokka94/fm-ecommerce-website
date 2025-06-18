@@ -20,20 +20,22 @@ const GlobalSearch = () => {
 
   const debounceSearchTerm = useDebounce(searchQuery, 300);
 
-  const filteredData = allData.filter((product) => {
-    return product.title
-      .toLowerCase()
-      .includes(debounceSearchTerm.toLowerCase());
-  });
+  const filteredData =
+    allData?.filter((product) => {
+      return product?.title
+        ?.toLowerCase()
+        ?.includes(debounceSearchTerm?.toLowerCase());
+    }) || [];
 
   // console.log("fil", filteredData);
 
   useEffect(() => {
-    if (debounceSearchTerm && debounceSearchTerm.length > 1) {
-      setShowDropdown(true);
-    } else {
-      setShowDropdown(false);
-    }
+    // if (debounceSearchTerm?.length>1) {
+    //   setShowDropdown(true);
+    // } else {
+    //   setShowDropdown(false);
+    // }
+    setShowDropdown(debounceSearchTerm?.length > 1);
   }, [debounceSearchTerm]);
 
   const onSubmit = (data: SearchFormInputs) => {
@@ -58,6 +60,7 @@ const GlobalSearch = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   return (
     <div className="relative max-w-lg flex flex-1 items-center">
       <form
@@ -94,7 +97,7 @@ const GlobalSearch = () => {
         {/* Suggestion Dropdown */}
         {showDropdown && (
           <ul className="absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-xl max-h-64 overflow-y-auto z-50 text-sm">
-            {filteredData.length > 0 ? (
+            {filteredData?.length ? (
               filteredData.map((product) => {
                 const createSlug = (title: string, id: number) => {
                   return `${title

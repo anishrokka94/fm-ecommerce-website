@@ -38,3 +38,9 @@ export interface ProductDimension {
   height: number;
   depth: number;
 }
+
+export interface ProductCategories {
+  slug: string;
+  name: string;
+  url: string;
+}

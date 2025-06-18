@@ -2,7 +2,7 @@ import { useContext, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../global-state/context/AuthContext/AuthContext";
 import { AUTH_ACTION_TYPE } from "../../global-state/action/AuthActions/AuthActions";
-import axios from "axios";
+import axiosInstance from "../../api/axiosInstance";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const LoginPage = () => {
     // call backend api
 
     try {
-      const res = await axios.post("https://dummyjson.com/auth/login", {
+      const res = await axiosInstance.post("/auth/login", {
         username: state.username,
         password: state.password,
         expiresInMins: 20,

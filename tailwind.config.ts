@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -20,6 +19,11 @@ const config: Config = {
       fontFamily: {
         sans: ["Inter", "sans-serif"], // set default sans
       },
+
+      colors: {
+        primary: "#000",
+      },
+
       boxShadow: {
         input: "0px 7px 20px rgba(0, 0, 0, 0.03)",
         form: "0px 1px 55px -11px rgba(0, 0, 0, 0.01)",
@@ -32,36 +36,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        ".bg-primary": {
-          backgroundColor: "var(--color-primary)",
-        },
-        ".bg-primary-dark": {
-          backgroundColor: "var(--color-primary-dark)",
-        },
-        ".bg-surface": {
-          backgroundColor: "var(--color-surface)",
-        },
-        ".bg-page": {
-          backgroundColor: "var(--color-bg)",
-        },
-        ".text-primary": {
-          color: "var(--color-primary)",
-        },
-        ".text-muted": {
-          color: "var(--color-text-muted)",
-        },
-        ".border-primary": {
-          borderColor: "var(--color-primary)",
-        },
-        ".border-surface": {
-          borderColor: "var(--color-border)",
-        },
-      });
-    }),
-  ],
 };
 
 export default config;

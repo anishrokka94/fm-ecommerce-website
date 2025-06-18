@@ -8,7 +8,7 @@ interface SingleProductCardProps {
 const SingleProductCard = ({ product }: SingleProductCardProps) => {
   return (
     <div className="w-full">
-      <ProductCard products={[product]} loading={false} error={false} />
+      <ProductCard products={[product]} loading={false} />
     </div>
   );
 };

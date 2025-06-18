@@ -1,10 +1,9 @@
-// import { useContext } from "react";
-import { all } from "axios";
 import ProductShowcaseSection from "../../components/common/ProductionShowcaseSection/ProductShowcaseSection";
 import CategorySection from "../../components/Homepage/CategorySection";
 import SwiperSlider from "../../components/SwiperSlider/SwiperSlider";
 import useFetch from "../../hooks/useFetch";
 import Banner from "./components/Banner/Banner";
+import useFetchProductCategories from "../../hooks/useFetchProductCategories";
 // import { AuthContext } from "../global-state/context/AuthContext/AuthContext";
 
 const HomePage = () => {
@@ -61,11 +60,10 @@ const HomePage = () => {
     },
   ];
 
-  // const { isLoggedIn } = useContext(AuthContext);
-  // console.log("islo", isLoggedIn);
-
   const { allData } = useFetch(1, 10);
-  console.log("all data", allData);
+  // console.log("all data", allData);
+
+  const { categories } = useFetchProductCategories(7);
   return (
     <div className="">
       <SwiperSlider
@@ -79,7 +77,7 @@ const HomePage = () => {
         showPagination={false}
       />
 
-      <CategorySection />
+      <CategorySection categories={categories} />
 
       <Banner />
       <ProductShowcaseSection

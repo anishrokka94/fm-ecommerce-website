@@ -3,10 +3,16 @@ import { DRAWER_ACTION_TYPE } from "../../../global-state/action/DrawerActions/D
 import { DrawerContext } from "../../../global-state/context/DrawerContext/DrawerContext";
 
 const Drawer = () => {
-  const { state, drawerDispatch } = useContext(DrawerContext);
+  const context = useContext(DrawerContext);
+
+  if (!context) {
+    throw new Error("DrawerContext must be used within a DrawerProvider");
+  }
+
+  const { state, drawerDispatch } = context;
   const handleDrawer = () => {
     console.log("drawer...", state);
-    drawerDispatch({ type: DRAWER_ACTION_TYPE.CLOSE, payload: {} });
+    drawerDispatch({ type: DRAWER_ACTION_TYPE.CLOSE });
   };
   return (
     <>

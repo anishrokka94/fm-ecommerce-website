@@ -33,3 +33,7 @@ body {
 .swiper-button-custom .arrow {
   @apply text-black text-2xl;
 }
+
+/* .text-abc {
+  @apply text-primary;
+} */

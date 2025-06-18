@@ -68,7 +68,7 @@ const GlobalSearch = () => {
         className="w-full"
         ref={globalFormRef}
       >
-        <div className="flex gap-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg border border-gray-200 transition-all">
+        <div className="flex gap-2 px-4 py-2 bg-white rounded-full border-2 border-gray-900 transition-all">
           <input
             {...register("searchQuery")}
             autoComplete="off"

@@ -25,8 +25,8 @@ const ProductDetail = () => {
   return (
     <>
       <div className="mx-auto px-4 py-8">
-        <div className="flex flex-wrap -mx-4">
-          <div className="md:w-1/2 px-8">
+        <div className="flex flex-col md:flex-row -mx-4">
+          <div className="flex-2 px-8">
             {/* <ProductSlider images={productDetails?.images} /> */}
             {productDetails?.images && (
               <ProductSlider images={productDetails.images} />
@@ -34,7 +34,7 @@ const ProductDetail = () => {
           </div>
 
           {/* <!-- Product Details --> */}
-          <div className="md:w-1/2 px-8">
+          <div className="flex-1 px-8">
             {productDetails && (
               <ProductBasicDetails productDetails={productDetails} />
             )}

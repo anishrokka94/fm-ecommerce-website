@@ -11,6 +11,7 @@ const ProductThumbnailSlider = ({
   images = [],
 }: ProductThumbnailSliderProps) => {
   const [activeImage, setActiveImage] = useState(images[0]);
+  console.log("active", activeImage);
   return (
     <div className="flex gap-4">
       <div className="flex flex-col gap-2 overflow-y-auto max-h-[400px]">
@@ -20,7 +21,11 @@ const ProductThumbnailSlider = ({
             src={img}
             alt={`Thumbnail ${index}`}
             onClick={() => setActiveImage(img)}
-            className="w-20 h-20 object-cover border border-gray-300 rounded cursor-pointer hover:scale-105 transition"
+            className={`w-20 h-20 object-cover rounded cursor-pointer transition ${
+              activeImage === img
+                ? "border-2 border-gray-800"
+                : "border-2 border-gray-300"
+            }`}
           />
         ))}
       </div>

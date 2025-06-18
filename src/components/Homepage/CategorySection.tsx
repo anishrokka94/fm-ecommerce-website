@@ -20,7 +20,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
                 <img
                   src="/img/beauty.webp"
                   alt="Home Wellness Edit"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition"
                 />
               );
             }
@@ -29,7 +29,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
                 <img
                   src="/img/freg.webp"
                   alt="Home Wellness Edit"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition"
                 />
               );
             }
@@ -38,7 +38,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
                 <img
                   src="/img/furniture.webp"
                   alt="Home Wellness Edit"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition"
                 />
               );
             }
@@ -47,7 +47,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
                 <img
                   src="/img/museli.avif"
                   alt="Home Wellness Edit"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition"
                 />
               );
             }
@@ -56,7 +56,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
                 <img
                   src="/img/cat-6.webp"
                   alt="Home Wellness Edit"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition"
                 />
               );
             }
@@ -65,7 +65,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
                 <img
                   src="/img/cat-2.webp"
                   alt="Home Wellness Edit"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition"
                 />
               );
             }
@@ -74,7 +74,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
                 <img
                   src="/img/macbook.avif"
                   alt="Home Wellness Edit"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition"
                 />
               );
             }

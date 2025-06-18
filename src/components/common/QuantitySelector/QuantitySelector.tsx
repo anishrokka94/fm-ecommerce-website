@@ -17,7 +17,7 @@ const QuantitySelector = () => {
       >
         &minus;
       </button>
-      <span className="mx-4 text-lg">{quantity}</span>
+      <span className="mx-4">{quantity}</span>
       <button
         onClick={increase}
         className="text-xl text-gray-800 px-2 hover:text-black cursor-pointer"

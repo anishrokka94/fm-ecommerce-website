@@ -18,7 +18,7 @@ const ShopPage = () => {
     <>
       <div className="w-full flex gap-6 p-6">
         {/* Left Sidebar Filter */}
-        <div className="w-48">
+        <div className="w-52">
           {" "}
           {/* fixed width */}
           <CategoryFilter />

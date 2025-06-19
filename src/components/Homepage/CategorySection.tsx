@@ -12,7 +12,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
       <h2 className="mb-4 text-2xl font-bold tracking-tight text-gray-900">
         Best Selling Categories
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 p-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 py-6">
         {categories?.map((category) => {
           const categoryImage = () => {
             if (category.slug === "beauty") {

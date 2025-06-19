@@ -15,11 +15,12 @@ const CategoryFilter = () => {
 
   return (
     <div style={{ padding: 20 }}>
-      <h3 className="text-lg mb-4">Filter by Category</h3>
+      <h3 className="text-md mb-4 font-bold">Filter by Category</h3>
       {categories.map((category) => (
         <div key={category.slug} style={{ marginBottom: 8 }}>
-          <label>
+          <label className="font-light text-sm">
             <input
+              className="mr-3"
               type="checkbox"
               // checked={selectedCategories.includes(category)}
             />{" "}

@@ -17,6 +17,7 @@ const DarkModeToggleButton = () => {
 
   return (
     <button
+      className="cursor-pointer"
       onClick={() => themeDispatch({ type: ThemeActionType.TOGGLE_DARK_MODE })}
     >
       {state.darkMode ? <LightModeIcon /> : <DarkModeIcon />}

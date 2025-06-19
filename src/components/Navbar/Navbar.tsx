@@ -87,7 +87,7 @@ const Navbar = () => {
                 Categories <ChevronDownIcon />
               </a>
 
-              <div className="absolute mt-2 left-0 sm:left-auto sm:right-0 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto pointer-events-none transform transition-all duration-300 ease-out bg-white dark:bg-amber-900 shadow-lg rounded-md p-4 z-50">
+              <div className="absolute mt-2 left-0 sm:left-auto sm:right-0 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto pointer-events-none transform transition-all duration-300 ease-out bg-white dark:bg-amber-900 shadow-xl rounded-xl p-4 z-50">
                 <div className="grid grid-cols-5 gap-x-6 gap-y-2 min-w-[900px] max-w-screen-md">
                   {categories?.map((category) => {
                     return (

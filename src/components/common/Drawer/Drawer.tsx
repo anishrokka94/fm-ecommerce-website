@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { DRAWER_ACTION_TYPE } from "../../../global-state/action/DrawerActions/DrawerActions";
 import { DrawerContext } from "../../../global-state/context/DrawerContext/DrawerContext";
 import { CartContext } from "../../../global-state/context/CartContext/CartContext";
-import { TrashIcon } from "@heroicons/react/24/solid";
+import { ShoppingCartIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { actualPrice } from "../../../utils/auth";
 import { CART_ACTION_TYPE } from "../../../global-state/action/CartActions/CartActions";
 import type { CartItem } from "../Cart/Cart";
+import { Link } from "react-router-dom";
 
 const Drawer = () => {
   const context = useContext(DrawerContext);
@@ -125,14 +126,31 @@ const Drawer = () => {
                           </div>
                         );
                       })}
+
+                      {cartState.items.length === 0 && (
+                        <div className="h-full flex flex-col items-center justify-center py-16">
+                          <ShoppingCartIcon className="w-16 h-16 text-gray-700 mb-4" />
+                          <p className="text-lg text-gray-800 font-medium mb-6">
+                            Your cart is empty
+                          </p>
+                          <Link
+                            to="/product"
+                            className="bg-gray-800 hover:bg-gray-700 text-white text-sm font-semibold px-6 py-3 rounded-full transition-colors"
+                          >
+                            Start shopping
+                          </Link>
+                        </div>
+                      )}
                     </div>
 
-                    <div className="px-4 sm:px-6">
-                      <button className="w-100 border-2 border-gray-600 rounded-full px-4 py-1 hover:bg-black-500 cursor-pointer">
-                        {" "}
-                        Checkout{" "}
-                      </button>
-                    </div>
+                    {cartState.items.length > 0 && (
+                      <div className="px-4 sm:px-6">
+                        <button className="w-100 border-2 border-gray-600 rounded-full px-4 py-1 hover:bg-black-500 cursor-pointer">
+                          {" "}
+                          Checkout{" "}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

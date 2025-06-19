@@ -15,7 +15,7 @@ export const useFetchProductDetails = (productId: string) => {
       setIsLoading(true);
       try {
         const res = await fetchProductDetails(productId);
-        console.log("res details", res);
+        // console.log("res details", res);
         setProductDetails(res);
       } catch (e) {
         setError(e as Error);

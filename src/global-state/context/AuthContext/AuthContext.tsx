@@ -19,7 +19,7 @@ export const AuthContext = createContext<AuthContextType>({
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [state, authDispatch] = useReducer(AuthReducer, initialAuthState);
 
-  console.log("context", state);
+  // console.log("context", state);
 
   return (
     <AuthContext.Provider value={{ state, authDispatch }}>

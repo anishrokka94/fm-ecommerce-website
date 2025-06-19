@@ -13,7 +13,7 @@ const GlobalSearch = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const searchQuery = watch("searchQuery");
-  console.log("query", searchQuery);
+  // console.log("query", searchQuery);
 
   const { allData } = useFetch(1, 100);
   // console.log("search", allData);

@@ -10,6 +10,7 @@ import { DRAWER_ACTION_TYPE } from "../../global-state/action/DrawerActions/Draw
 import { UserIcon, MapPinIcon, TruckIcon } from "@heroicons/react/24/solid";
 import useAuthLogin from "../../hooks/useAuthLogin";
 import useFetchProductCategories from "../../hooks/useFetchProductCategories";
+import { CartContext } from "../../global-state/context/CartContext/CartContext";
 
 const Navbar = () => {
   // const { drawerDispatch } = useContext(DrawerContext);
@@ -30,6 +31,8 @@ const Navbar = () => {
   const { categories } = useFetchProductCategories(0);
 
   console.log("user", userData);
+
+  const { cartState } = useContext(CartContext);
   return (
     <>
       <div className="bg-[#cc3131] text-white text-sm">
@@ -128,9 +131,18 @@ const Navbar = () => {
                   <Link to="" className="">
                     <FavouriteIcon />
                   </Link>
-                  <Link to="/" className="" onClick={(e) => handleDrawer(e)}>
-                    <CartIcon />
-                  </Link>
+                  <div className="relative">
+                    <Link to="/" className="" onClick={(e) => handleDrawer(e)}>
+                      <CartIcon />
+                    </Link>
+
+                    {/* Badge */}
+                    {cartState?.items?.length > 0 && (
+                      <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+                        {cartState?.items?.length}
+                      </span>
+                    )}
+                  </div>
 
                   <DarkModeToggleButton />
                 </div>

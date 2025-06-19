@@ -9,6 +9,7 @@ import ProductWarrentyAccordion from "./components/ProductWarrentyAccordion/Prod
 import SellerInfo from "./components/SellerInfo/SellerInfo";
 import CustomerReviews from "./components/CustomerReviews/CustomerReviews";
 import { useEffect } from "react";
+import AddToCart from "../../components/Buttons/AddToCart";
 
 const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -41,9 +42,7 @@ const ProductDetail = () => {
             <div className="mb-6 flex gap-4">
               {/* ldamdma */}
               <QuantitySelector />
-              <button className="w-100 border-2 border-gray-600 rounded-full px-4 py-1 hover:bg-black-500 cursor-pointer">
-                Add to Cart
-              </button>
+              <AddToCart product={productDetails} />
             </div>
 
             {productDetails?.dimensions && (

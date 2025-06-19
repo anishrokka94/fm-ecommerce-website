@@ -6,7 +6,7 @@ interface CategorySectionProps {
 }
 
 const CategorySection = ({ categories }: CategorySectionProps) => {
-  console.log("cat home", categories);
+  // console.log("cat home", categories);
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
       <h2 className="mb-4 text-2xl font-bold tracking-tight text-gray-900">

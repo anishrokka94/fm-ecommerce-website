@@ -11,7 +11,7 @@ const ProductThumbnailSlider = ({
   images = [],
 }: ProductThumbnailSliderProps) => {
   const [activeImage, setActiveImage] = useState(images[0]);
-  console.log("active", activeImage);
+  // console.log("active", activeImage);
   return (
     <div className="flex gap-4">
       <div className="flex flex-col gap-2 overflow-y-auto max-h-[400px]">

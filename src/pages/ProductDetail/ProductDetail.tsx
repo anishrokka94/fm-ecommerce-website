@@ -17,7 +17,7 @@ const ProductDetail = () => {
 
   const productId = slug?.split("-").pop();
   const { productDetails } = useFetchProductDetails(productId!);
-  // console.log("pd", productDetails);
+  console.log("pd", productDetails);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,7 +40,6 @@ const ProductDetail = () => {
               <ProductBasicDetails productDetails={productDetails} />
             )}
             <div className="mb-6 flex gap-4">
-              {/* ldamdma */}
               <QuantitySelector />
               <AddToCart product={productDetails} />
             </div>
@@ -61,15 +60,16 @@ const ProductDetail = () => {
                 warrantyInformation={productDetails.warrantyInformation}
               />
             )}
+
+            {productDetails?.brand && (
+              <SellerInfo brand={productDetails?.brand} />
+            )}
+
+            {productDetails?.reviews && (
+              <CustomerReviews reviews={productDetails?.reviews} />
+            )}
           </div>
         </div>
-      </div>
-
-      <div className="mx-auto px-8 py-10 grid grid-cols-1 md:grid-cols-1 gap-10">
-        {/* Customer Reviews */}
-        <CustomerReviews />
-        {/* About the seller */}
-        <SellerInfo />
       </div>
     </>
   );

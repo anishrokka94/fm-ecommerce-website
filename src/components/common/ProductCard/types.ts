@@ -28,9 +28,17 @@ export interface ProductDetails {
   warrentyInformation: string;
   weight: number;
   tags: string[];
-  reviews: string[];
+  reviews: Review[];
   shippingInformation: string;
   warrantyInformation: string;
+}
+
+export interface Review {
+  rating: number;
+  reviewerName: string;
+  reviewerEmail: string;
+  comment: string;
+  date: string;
 }
 
 export interface ProductDimension {

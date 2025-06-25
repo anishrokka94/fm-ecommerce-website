@@ -1,15 +1,8 @@
+import type { ProductDetails } from "../../../../components/common/ProductCard/types";
 import { actualPrice } from "../../../../utils/auth";
 
 interface ProductBasicDetailsProps {
-  productDetails: {
-    title: string;
-    sku: string;
-    price: number;
-    discountPercentage: number;
-    reviews: string[];
-    rating: number;
-    description: string;
-  };
+  productDetails: ProductDetails;
 }
 
 const ProductBasicDetails = ({ productDetails }: ProductBasicDetailsProps) => {

@@ -3,9 +3,30 @@ import type { ProductCategories } from "../common/ProductCard/types";
 
 interface CategorySectionProps {
   categories: ProductCategories[];
+  loading: boolean;
 }
 
-const CategorySection = ({ categories }: CategorySectionProps) => {
+const CategorySection = ({ categories, loading }: CategorySectionProps) => {
+  if (loading) {
+    return (
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
+        <div className="">
+          <h2 className="w-60 h-5 rounded-full bg-gray-200 mb-6"></h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 py-6">
+            {Array.from({ length: 7 }).map((_, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center space-y-2 animate-pulse"
+              >
+                <div className="w-24 h-24 rounded-full bg-gray-200" />
+                <div className="w-20 h-4 bg-gray-200 rounded" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
   // console.log("cat home", categories);
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">

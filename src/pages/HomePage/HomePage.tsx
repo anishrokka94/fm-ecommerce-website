@@ -63,7 +63,7 @@ const HomePage = () => {
   const { allData } = useFetch(1, 10);
   // console.log("all data", allData);
 
-  const { categories } = useFetchProductCategories(7);
+  const { categories, loading } = useFetchProductCategories(7);
   return (
     <div className="">
       <SwiperSlider
@@ -77,7 +77,7 @@ const HomePage = () => {
         showPagination={false}
       />
 
-      <CategorySection categories={categories} />
+      <CategorySection categories={categories} loading={loading} />
 
       <Banner />
       <ProductShowcaseSection

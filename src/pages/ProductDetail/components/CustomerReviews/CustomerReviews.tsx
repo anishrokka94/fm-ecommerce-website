@@ -1,5 +1,6 @@
 import { CheckCircleIcon, StarIcon } from "@heroicons/react/24/solid";
 import type { Review } from "../../../../components/common/ProductCard/types";
+import { dateFormat } from "../../../../utils/auth";
 
 interface CustomerReviewsProps {
   reviews: Review[];
@@ -41,7 +42,10 @@ const CustomerReviews = ({ reviews }: CustomerReviewsProps) => {
                     {review.reviewerEmail}
                   </span>
 
-                  <span className="ml-auto text-gray-500"> {review.date} </span>
+                  <span className="ml-auto text-gray-500">
+                    {" "}
+                    {dateFormat(review.date)}{" "}
+                  </span>
                 </div>
               </div>
             );

@@ -143,6 +143,8 @@ const Drawer = () => {
                       )}
                     </div>
 
+                    <div className="px-4 sm:px-6 py-4">Total:</div>
+
                     {cartState.items.length > 0 && (
                       <div className="px-4 sm:px-6">
                         <button className="w-100 border-2 border-gray-600 rounded-full px-4 py-1 hover:bg-black-500 cursor-pointer">

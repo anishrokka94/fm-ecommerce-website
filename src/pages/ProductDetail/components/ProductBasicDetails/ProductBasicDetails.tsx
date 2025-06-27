@@ -28,6 +28,12 @@ const ProductBasicDetails = ({ productDetails }: ProductBasicDetailsProps) => {
         <span className="bg-[#cc3131] px-1 text-md font-medium text-white">
           {productDetails.discountPercentage}% OFF
         </span>
+
+        {productDetails.stock > 0 ? (
+          <span className="block"> In Stock: {productDetails.stock} </span>
+        ) : (
+          <span className="block text-red-600"> Out of Stock </span>
+        )}
       </div>
       <div className="flex items-center mb-4">
         <svg

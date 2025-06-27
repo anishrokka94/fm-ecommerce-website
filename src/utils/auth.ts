@@ -8,3 +8,9 @@ export const actualPrice = (totalPrice: number, discountedPercent: number) => {
 
   return price.toFixed(2);
 };
+
+export const dateFormat = (date: string) => {
+  const isoDate = date;
+  const dateOnly: string = isoDate.substring(0, 10);
+  return dateOnly;
+};

@@ -95,7 +95,8 @@ const Navbar = () => {
                   {categories?.map((category) => {
                     return (
                       <Link
-                        to="/categories/mobiles"
+                        key={category.name}
+                        to={category.url}
                         className="block text-sm hover:underline"
                       >
                         {category.name}

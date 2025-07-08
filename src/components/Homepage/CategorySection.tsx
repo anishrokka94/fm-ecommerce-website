@@ -101,7 +101,7 @@ const CategorySection = ({ categories, loading }: CategorySectionProps) => {
             }
           };
           return (
-            <Link to={category.slug}>
+            <Link to={category.url}>
               <div className="flex flex-col items-center">
                 <div className="w-28 h-28 rounded-full overflow-hidden flex items-center justify-center bg-gray-100">
                   {categoryImage()}

@@ -39,7 +39,7 @@ const AccountPage = () => {
           <h2 className="text-2xl font-semibold mb-6">Account details</h2>
           <div className="inline-block border border-gray-300 p-8 rounded-md bg-white">
             <p className="text-lg font-medium">Anish Rokka</p>
-            <p className="text-gray-600">India</p>
+            <p className="text-gray-600">Nepal</p>
           </div>
         </section>
       </div>

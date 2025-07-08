@@ -25,3 +25,9 @@ export const fetchProductCategories = async (limit: number) => {
   const allCategories = res.data;
   return limit ? allCategories.slice(0, limit) : allCategories;
 };
+
+// get all categories name
+export const fetchProductCategoriesName = async () => {
+  const res = await axiosInstance.get("/products/category-list");
+  return res.data;
+};

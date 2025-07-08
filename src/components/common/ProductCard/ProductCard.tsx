@@ -6,6 +6,7 @@ interface ProductCardProps {
   products: Product[];
   loading: boolean;
   error?: string;
+  category: string[];
 }
 
 const ProductCard = ({ products, loading }: ProductCardProps) => {

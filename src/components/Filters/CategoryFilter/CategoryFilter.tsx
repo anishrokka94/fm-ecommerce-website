@@ -1,8 +1,19 @@
-import useFetchProductCategories from "../../../hooks/useFetchProductCategories";
+import { useFetchProductCategoriesName } from "../../../hooks/useFetchProductCategoriesName";
 
-const CategoryFilter = () => {
-  const { categories, loading } = useFetchProductCategories(0);
-  // console.log("cat", categories.length);
+interface CategoryChangeProps {
+  onCategoryChange: (value: string, isChecked: boolean) => void;
+}
+
+const CategoryFilter = ({ onCategoryChange }: CategoryChangeProps) => {
+  const { categoryName, loading } = useFetchProductCategoriesName();
+
+  const handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    const isChecked = e.target.checked;
+    // console.log("is", isChecked);
+    onCategoryChange(value, isChecked);
+  };
 
   if (loading) {
     return (
@@ -24,18 +35,22 @@ const CategoryFilter = () => {
   return (
     <div style={{ padding: 20 }}>
       <h3 className="text-md mb-4 font-bold">Filter by Category</h3>
-      {categories.map((category) => (
-        <div key={category.slug} style={{ marginBottom: 8 }}>
-          <label className="font-light text-sm">
-            <input
-              className="mr-3"
-              type="checkbox"
-              // checked={selectedCategories.includes(category)}
-            />{" "}
-            {category.name}
-          </label>
-        </div>
-      ))}
+      <form>
+        {categoryName.map((category, index) => (
+          <div key={index} style={{ marginBottom: 8 }}>
+            <label className="font-light capitalize text- text-sm">
+              <input
+                className="mr-3"
+                type="checkbox"
+                value={category}
+                onChange={handleFilter}
+                // checked={}
+              />{" "}
+              {category}
+            </label>
+          </div>
+        ))}
+      </form>
     </div>
   );
 };

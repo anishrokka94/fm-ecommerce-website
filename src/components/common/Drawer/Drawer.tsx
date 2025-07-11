@@ -6,10 +6,11 @@ import { ShoppingCartIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { actualPrice } from "../../../utils/auth";
 import { CART_ACTION_TYPE } from "../../../global-state/action/CartActions/CartActions";
 import type { CartItem } from "../Cart/Cart";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Drawer = () => {
   const context = useContext(DrawerContext);
+  const navigate = useNavigate();
 
   if (!context) {
     throw new Error("DrawerContext must be used within a DrawerProvider");
@@ -29,6 +30,10 @@ const Drawer = () => {
       type: CART_ACTION_TYPE.REMOVE_FROM_CART,
       payload: { id: id },
     });
+  };
+
+  const handleCheckout = () => {
+    navigate("/checkout");
   };
 
   return (
@@ -147,7 +152,10 @@ const Drawer = () => {
 
                     {cartState.items.length > 0 && (
                       <div className="px-4 sm:px-6">
-                        <button className="w-100 border-2 border-gray-600 rounded-full px-4 py-1 hover:bg-black-500 cursor-pointer">
+                        <button
+                          className="w-100 border-2 border-gray-600 rounded-full px-4 py-1 hover:bg-black-500 cursor-pointer"
+                          onClick={handleCheckout}
+                        >
                           {" "}
                           Checkout{" "}
                         </button>

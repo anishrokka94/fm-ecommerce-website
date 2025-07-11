@@ -12,6 +12,7 @@ import Layout from "../components/common/Layout";
 import LoginPage from "../pages/Login/LoginPage";
 import AccountPage from "../pages/Account/AccountPage";
 import { isUserAuthenticated } from "../utils/auth";
+import CheckoutPage from "../pages/Checkout/CheckoutPage";
 
 const PrivateRoutes = () => {
   return isUserAuthenticated() ? <Outlet /> : <Navigate to="/login" />;
@@ -35,6 +36,7 @@ const Allroutes = () => {
             </Route>
             <Route element={<PrivateRoutes />}>
               <Route path="/account" element={<AccountPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
             </Route>
             <Route path="/*" element={<p> Page not found </p>} />
           </Route>
